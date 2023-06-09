@@ -8,7 +8,8 @@ import arrow from "../assets/arrow.svg"
 import prop1 from "../assets/prop1.svg"
 import cutting from "../assets/cutting.svg"
 import styling from "../assets/Styling.svg"
+import Services from "../assets/Services.svg"
 
-const images = {logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling}
+const images = {logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling,Services}
 
 export default images;
