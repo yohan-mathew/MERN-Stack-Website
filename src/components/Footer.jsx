@@ -26,7 +26,7 @@ const Footer = () => {
     );
   };
   return (
-<section className='bg-[#D32828] mt-[50px]' >
+<section className='bg-[#D32828] mt-[50px] mb-0' >
     <footer className=' container mx-auto flex flex-col gap-y-5'>
     <div className='mx-auto md:hidden'>
             <img className='h-[20rem] ' src={images.logo2}/>
@@ -53,7 +53,7 @@ const Footer = () => {
           <h1 className=' text-center font-header text-[2rem]'>Hours</h1>
           <TimesList />  
         </div>
-        <div className='flex justify-center gap-x-11 mt-5 md:hidden'>
+        <div className='flex justify-center gap-x-9 md:hidden mb-5 mt-3'>
               <FiInstagram className='h-10 w-10'/>
               <FiTwitter className='h-10 w-10'/>
         </div>
