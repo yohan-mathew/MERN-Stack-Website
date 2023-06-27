@@ -9,7 +9,9 @@ import prop1 from "../assets/prop1.svg"
 import cutting from "../assets/cutting.svg"
 import styling from "../assets/Styling.svg"
 import Services from "../assets/Services.svg"
+import chair from "../assets/My project (4) 1.svg"
+import lineButton from "../assets/lineButton.svg"
 
-const images = {logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling,Services}
+const images = {logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling,Services,chair,lineButton}
 
 export default images;
