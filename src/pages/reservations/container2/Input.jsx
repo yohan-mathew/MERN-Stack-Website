@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import images from '../../../constants/images.js'
 import { useState } from 'react'
-import { getUserData } from '../../../data/user.js'
+import { useMutation } from '@tanstack/react-query'
+import { signup,line } from '../../../services/index/users.js'
 
 const Input = () => {
 
@@ -9,35 +10,39 @@ const Input = () => {
   const [inputValue,setInputValue] = useState('')
   const [barberInput,setBarberInput] = useState('')
 
-  console.log(user)
+  const { mutate: signin } = useMutation({
+    mutationFn: ({ name, barber }) => {
+      return signup({ name, barber });
+    },
+  });
+
+
+  const {mutate:curline} = useMutation({
+    mutationFn: () => {
+      return line();
+    }, onSuccess: (data) => {
+      setUser(data);
+    }
+  })
+
   useEffect(() => {
     (async() => {
-      const userdata = await getUserData();
-      setUser(userdata);
+      await curline()
     })()
   },[])
 
   
   function Click() {
 
-    const newComment={
-      _id:11,
-      userName: inputValue,
-      userBarber: barberInput, 
-      createdAt: "2022-12-31-T17:22:05.092+0000",
-      
-    }
-    if (inputValue !==""){
-      setUser((cur)=> {
-        return[...cur,newComment];
-      })
-      setInputValue("")
-      setBarberInput("")
-    }
+    signin({name: inputValue,barber: barberInput})
+    curline()
+    setInputValue("")
+    setBarberInput("")
+    
   }
 
 const Change = event => {
-  if(event.target.id == "name"){
+  if(event.target.id === "name"){
     setInputValue(event.target.value)
   }
   else{
@@ -76,7 +81,7 @@ const Change = event => {
       </div>
       <div className= 'm-6 p-4 bg-black text-white flex flex-col rounded-md text-center gap-y-2 lg:w-[50%] lg:mx-auto'>
         {user.map((item,index)=> (
-          <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item.userName}</p>))}
+          <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item}</p>))}
         
       </div>
 
