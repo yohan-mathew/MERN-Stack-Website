@@ -19,10 +19,10 @@ const womenOp = () =>{
     <MainLayout>
         <section>
           <div className='flex justify-center mt-3 ml-[10%] mr-[10%]'>
-            <button onClick={menOp} className='border border-red-950 w-[50%]'>Men</button>
-            <button onClick={womenOp} className='border border-red-950 w-[50%]'>Women</button> 
+            <button onClick={menOp} className={`${option ? "bg-[#D32828]" : "bg-black" }  w-[50%] text-white `}>Men</button>
+            <button onClick={womenOp} className={`${option ? "bg-black" : "bg-[#D32828]" }  w-[50%]  text-white `}>Women</button> 
           </div>
-          <div>
+          <div className='mt-3 ml-[15%] mr-[15%]'>
             {option ? <MenOption/> : <WomenOption/> }
           </div>
         </section>
