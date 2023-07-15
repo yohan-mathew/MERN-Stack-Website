@@ -4,7 +4,7 @@ import HomePage from './pages/home/HomePage';
 import {Routes, Route} from "react-router-dom"
 import Reservation from './pages/reservations/Reservation';
 import Mwservices from './pages/Offeredservices/Mwservices';
-
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
         <Route  path="/reserveNow" element={<Reservation/>} />
         <Route path="/Mservices" element={<Mwservices/>} />
       </Routes>
+      <Toaster />
       
     </div>
   );

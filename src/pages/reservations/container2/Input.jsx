@@ -3,6 +3,9 @@ import images from '../../../constants/images.js'
 import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { signup,line } from '../../../services/index/users.js'
+import  toast  from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
+
 
 const Input = () => {
 
@@ -13,21 +16,29 @@ const Input = () => {
   const { mutate: signin } = useMutation({
     mutationFn: ({ name, barber }) => {
       return signup({ name, barber });
-    },
+    },onSuccess: () => {
+      toast.success("seat reserved")
+    },onError:(error) =>{
+      toast.error(error.message)
+    }
   });
 
 
   const {mutate:curline} = useMutation({
     mutationFn: () => {
+      
       return line();
     }, onSuccess: (data) => {
+      
       setUser(data);
+      
     }
   })
 
   useEffect(() => {
     (async() => {
-      await curline()
+      curline()
+      
     })()
   },[])
 
@@ -38,6 +49,7 @@ const Input = () => {
     curline()
     setInputValue("")
     setBarberInput("")
+    
     
   }
 
@@ -82,8 +94,9 @@ const Change = event => {
       <div className= 'm-6 p-4 bg-black text-white flex flex-col rounded-md text-center gap-y-2 lg:w-[50%] lg:mx-auto'>
         {user.map((item,index)=> (
           <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item}</p>))}
-        
+          
       </div>
+      <Toaster />
 
 
     </form>
