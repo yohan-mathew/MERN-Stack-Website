@@ -13,7 +13,7 @@ catch(error) {
     }
 }
 
-}
+};
 
 export const line = async () => {
     try{
@@ -26,4 +26,18 @@ export const line = async () => {
             throw new Error(error.response.data.message)
         
         }
-    }}
+    }};
+
+export const signin = async ({email,password}) => {
+    try{
+
+        const {data} = await axios.post("/api/users/login",{email,password})
+        return data
+    }
+    
+    catch(error) {
+        if(error.response && error.response.data.message){
+            throw new Error(error.response.data.message)
+        
+        }
+    }};

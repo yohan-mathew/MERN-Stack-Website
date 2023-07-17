@@ -13,7 +13,7 @@ const Input = () => {
   const [inputValue,setInputValue] = useState('')
   const [barberInput,setBarberInput] = useState('')
 
-  const { mutate: signin } = useMutation({
+  const { mutate: signupfun } = useMutation({
     mutationFn: ({ name, barber }) => {
       return signup({ name, barber });
     },onSuccess: () => {
@@ -45,7 +45,7 @@ const Input = () => {
   
   function Click() {
 
-    signin({name: inputValue,barber: barberInput})
+    signupfun({name: inputValue,barber: barberInput})
     curline()
     setInputValue("")
     setBarberInput("")

@@ -26,7 +26,7 @@ const Footer = () => {
     );
   };
   return (
-<section className='bg-[#D32828] mt-[50px] mb-0' >
+<section className='bg-[#D32828]  mb-0' >
     <footer className=' container mx-auto flex flex-col gap-y-5'>
     <div className='mx-auto md:hidden'>
             <img className='h-[20rem] ' src={images.logo2}/>
