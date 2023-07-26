@@ -41,3 +41,19 @@ export const signin = async ({email,password}) => {
         
         }
     }};
+
+    export const adminauth = async () => {
+        try{
+    
+            const {data} = await axios.post("/api/users/dashboard")
+            return data
+            
+        }
+        
+        catch(error) {
+            if(error.response && error.response.data.message){
+                throw new Error(error.response.data.message)
+            
+            }
+        }};
+

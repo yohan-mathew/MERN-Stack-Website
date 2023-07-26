@@ -29,7 +29,7 @@ const Input = () => {
       
       return line();
     }, onSuccess: (data) => {
-      
+      console.log(data)
       setUser(data);
       
     }
@@ -60,6 +60,9 @@ const Change = event => {
   else{
     setBarberInput(event.target.value)
   }
+
+
+
  
 }
   return (
@@ -92,18 +95,23 @@ const Change = event => {
       </a>
       </div>
       <div className= 'm-6 p-4 bg-black text-white flex flex-col rounded-md text-center gap-y-2 lg:w-[50%] lg:mx-auto'>
+        <h1 className=' font-body text-[20px] text-[#D32828]'>Current line</h1>
         {user.map((item,index)=> (
-          <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item}</p>))}
-          
+          <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item.name}</p>))}
+        <h1 className=' font-body text-[20px]'>Join the line for swift and personalized service</h1>
       </div>
       <Toaster />
 
 
     </form>
+  )
+}
+
+
     
       
 
-  )
-}
+  
+
 
 export default Input

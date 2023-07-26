@@ -5,17 +5,21 @@ import images from '../../constants/images.js'
 import  toast  from 'react-hot-toast'
 import { useMutation } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast'
-import { signin } from '../../services/index/users'
+import { adminauth, signin } from '../../services/index/users'
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
   const [usernameValue,setUsernameValue] = useState('')
   const [passInput,setPassInput] = useState('')
+  const navigate = useNavigate();
 
   const { mutate: signinfun } = useMutation({
-    mutationFn: ({ email,password }) => {
-      return signin({email, password});
+    mutationFn: async ({ email,password }) => {
+      await signin({ email, password });
+      adminauth();
     },onSuccess: () => {
+      navigate("/dashboard")
       toast.success("Welcome")
     },onError:(error) =>{
       toast.error(error.message)
