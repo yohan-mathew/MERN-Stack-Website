@@ -25,9 +25,9 @@ const Input = () => {
 
 
   const {mutate:curline} = useMutation({
-    mutationFn: () => {
+    mutationFn: async () => {
       
-      return line();
+      return await line();
     }, onSuccess: (data) => {
       console.log(data)
       setUser(data);
@@ -43,12 +43,14 @@ const Input = () => {
   },[])
 
   
-  function Click() {
+  async function Click() {
 
     signupfun({name: inputValue,barber: barberInput})
-    curline()
+   
     setInputValue("")
     setBarberInput("")
+
+    await curline()
     
     
   }
@@ -90,7 +92,7 @@ const Change = event => {
         placeholder='Your Preferred Specialist '
         className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
       />
-      <a className='flex justify-center mt-6'>
+      <a className='flex justify-center mt-6' href="#">
         <img className='h-14' src={images.lineButton} alt="booknow" onClick={Click} ></img>
       </a>
       </div>

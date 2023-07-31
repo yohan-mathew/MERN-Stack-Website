@@ -41,9 +41,6 @@ const Footer = () => {
           <h1 className=' text-center font-header text-[2rem]'>Contact us</h1>
           <p className=' text-center text-white font-sans text-[1.5rem]'>(346) 263-9272</p>
         </div>
-        <div>
-          <a>login</a>  
-        </div>
       </div>
       <div className='mx-auto hidden md:block'>
             <img className='h-[20rem]' src={images.logo2}/>

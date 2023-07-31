@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MainLayout from '../../components/MainLayout';
 import { useMutation } from '@tanstack/react-query';
-import { adminauth, line } from '../../services/index/users';
+import { adminauth, deleteUser, line } from '../../services/index/users';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -21,10 +21,18 @@ const DashBoard = () => {
       toast.error(error.message)
     }
   });
+  
+  const { mutate: removeUser } = useMutation({
+    mutationFn: async (x) => {
+      await deleteUser(x);
+    },onSuccess: () => {
+      toast.success("removed")
+    }
+  });
 
 
   const {mutate:curline} = useMutation({
-    mutationFn: () => {
+    mutationFn:async () => {
       
       return line();
     }, onSuccess: (data) => {
@@ -40,10 +48,15 @@ const DashBoard = () => {
       
     })()
   },[])
+
+  const printtheuser = async (x) =>{
+    removeUser(x)
+    await curline()
+  }
   
   return (
     <MainLayout>
-      <section className=' bg-black text-white font-body'>
+      <section className=' bg-black text-white font-body h-screen'>
         <div className='flex justify-center'>
           <h1> Current List</h1>
         </div>
@@ -56,12 +69,12 @@ const DashBoard = () => {
         <div className= 'flex flex-col'>
           {user.map((item,index)=> (
             <div className=' grid grid-cols-4'>
-            <div key={index} className=' bg-[#D32828] rounded-lg w-[90%] mx-auto p-2  pl-10 pr-10 flex justify-between mb-3 col-span-3'>
+            <div key={item.id} className=' bg-[#D32828] rounded-lg w-[90%] mx-auto p-2  pl-10 pr-10 flex justify-between mb-3 col-span-3'>
               <p>{item.name}</p>
               <p>{item.barber}</p>
               <p>{formatTime(item.time)}</p>
             </div>
-            <button className='bg-[#D32828] rounded-lg  mb-3'>remove</button>
+            <button className='bg-[#D32828] rounded-lg  mb-3' onClick={() => printtheuser(item.id)}>remove</button>
             </div>
             ))}
            

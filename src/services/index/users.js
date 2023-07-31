@@ -18,7 +18,7 @@ catch(error) {
 export const line = async () => {
     try{
         const {data} = await axios.get("/api/users/reserve")
-        return data
+        return await data
     }
     
     catch(error) {
@@ -56,4 +56,16 @@ export const signin = async ({email,password}) => {
             
             }
         }};
+
+    export const deleteUser = async (objectId) => {
+        try{
+            await axios.delete(`/api/users/dashboard/${objectId}`)
+        }
+        catch(error){
+            if(error.response && error.response.data.message){
+                throw new Error(error.response.data.message)
+            
+            }
+        }
+    }
 
