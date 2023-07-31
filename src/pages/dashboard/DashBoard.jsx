@@ -52,7 +52,7 @@ const DashBoard = () => {
 
   const printtheuser = async (x) =>{
     removeUser(x)
-    window.location.reload()
+    curline()
   }
   
   return (

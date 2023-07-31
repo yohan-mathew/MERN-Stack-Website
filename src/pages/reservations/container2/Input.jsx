@@ -92,7 +92,7 @@ const Change = event => {
         placeholder='Your Preferred Specialist '
         className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
       />
-      <a className='flex justify-center mt-6' href="">
+      <a className='flex justify-center mt-6'>
         <img className='h-14' src={images.lineButton} alt="booknow" onClick={Click} ></img>
       </a>
       </div>

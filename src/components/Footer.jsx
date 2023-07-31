@@ -1,6 +1,7 @@
 import React from 'react'
 import { images } from '../constants/index.js';
 import {FiInstagram, FiFacebook} from "react-icons/fi"
+import {RiAdminFill }from "react-icons/ri"
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -48,6 +49,7 @@ const Footer = () => {
             <div className='flex justify-center gap-x-11'>
             <Link to ="https://instagram.com/lovetocut_?igshid=YmMyMTA2M2Y="><FiInstagram className='h-10 w-10'/></Link>
             <Link to ="https://www.facebook.com/lovetocut2018?mibextid=LQQJ4d"> <FiFacebook className='h-10 w-10'/></Link>
+            <Link to ="/login"><RiAdminFill className='h-10 w-10'/></Link>
             </div>
       </div>
         <div>
@@ -57,6 +59,7 @@ const Footer = () => {
         <div className='flex justify-center gap-x-9 md:hidden mb-5 mt-3'>
               <Link to ="https://instagram.com/lovetocut_?igshid=YmMyMTA2M2Y="><FiInstagram className='h-10 w-10'/></Link>
               <Link to ="https://www.facebook.com/lovetocut2018?mibextid=LQQJ4d"><FiFacebook className='h-10 w-10'/></Link>
+              
         </div>
     </div>
 
