@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { signup,line } from '../../../services/index/users.js'
 import  toast  from 'react-hot-toast'
-import { Toaster } from 'react-hot-toast'
+
 
 
 const Input = () => {
@@ -29,7 +29,7 @@ const Input = () => {
       
       return await line();
     }, onSuccess: (data) => {
-      console.log(data)
+  
       setUser(data);
       
     }
@@ -40,7 +40,7 @@ const Input = () => {
       curline()
       
     })()
-  },[])
+  },[curline])
 
   
   async function Click() {
@@ -92,7 +92,7 @@ const Change = event => {
         placeholder='Your Preferred Specialist '
         className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
       />
-      <a className='flex justify-center mt-6' href="#">
+      <a className='flex justify-center mt-6' href="">
         <img className='h-14' src={images.lineButton} alt="booknow" onClick={Click} ></img>
       </a>
       </div>
@@ -102,7 +102,7 @@ const Change = event => {
           <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item.name}</p>))}
         <h1 className=' font-body text-[20px]'>Join the line for swift and personalized service</h1>
       </div>
-      <Toaster />
+     
 
 
     </form>

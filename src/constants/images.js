@@ -26,7 +26,11 @@ import women5 from "../assets/women5.svg"
 import women6 from "../assets/women6.svg"
 import women7 from "../assets/women7.svg"
 import loginButton from "../assets/Group 23.svg"
+import consultations from "../assets/Consultations.svg"
+import treatments from "../assets/treatments.svg"
+import prop2 from "../assets/prop2.svg"
 
-const images = {loginButton,logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling,Services,chair,lineButton,men1,men2,men3,men4,men5,men6,line2,women1,women2,women3,women4,women5,women6,women7}
+const images = {loginButton,logo,scissors,button,logo2,mensTop,womensTop,arrow,prop1,cutting,styling,Services,chair,lineButton,men1
+    ,men2,men3,men4,men5,men6,line2,women1,women2,women3,women4,women5,women6,women7, consultations,treatments, prop2}
 
 export default images;

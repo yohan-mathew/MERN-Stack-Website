@@ -3,7 +3,7 @@ import MainLayout from '../../components/MainLayout';
 import { useMutation } from '@tanstack/react-query';
 import { adminauth, deleteUser, line } from '../../services/index/users';
 import { useEffect } from 'react';
-import { toast } from 'react-hot-toast';
+import { toast} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const DashBoard = () => {
@@ -44,19 +44,21 @@ const DashBoard = () => {
 
   useEffect(() => {
     (async() => {
+      verify()
       curline()
       
     })()
-  },[])
+  },[verify,curline])
 
   const printtheuser = async (x) =>{
     removeUser(x)
-    await curline()
+    window.location.reload()
   }
   
   return (
+    
     <MainLayout>
-      <section className=' bg-black text-white font-body h-screen'>
+      <section className=' bg-black text-white font-body min-h-screen'>
         <div className='flex justify-center'>
           <h1> Current List</h1>
         </div>
@@ -74,7 +76,7 @@ const DashBoard = () => {
               <p>{item.barber}</p>
               <p>{formatTime(item.time)}</p>
             </div>
-            <button className='bg-[#D32828] rounded-lg  mb-3' onClick={() => printtheuser(item.id)}>remove</button>
+            <button className='bg-[#D32828] rounded-lg  mb-3'  onClick={() => printtheuser(item.id)}>Remove</button>
             </div>
             ))}
            

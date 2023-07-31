@@ -18,7 +18,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
-      <Toaster />
+      <Toaster className='flex  items-start justify-start' />
     </div>
   );
 }

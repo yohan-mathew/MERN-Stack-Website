@@ -26,7 +26,7 @@ const Information = () => {
                  ensures that you'll receive top-notch service in a warm and inviting
                   atmosphere.
             </p>
-            <img src={images.prop1} className='mx-auto my-5 h-auto max-w-full xl:w-[50%]' alt="" />
+            <img src={images.prop2} className='mx-auto my-5 h-auto max-w-full xl:w-[50%]' alt="" />
         </div>
 
     </div>

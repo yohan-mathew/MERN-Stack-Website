@@ -1,6 +1,7 @@
 import React from 'react'
 import { images } from '../constants/index.js';
-import {FiInstagram, FiTwitter} from "react-icons/fi"
+import {FiInstagram, FiFacebook} from "react-icons/fi"
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -29,7 +30,7 @@ const Footer = () => {
 <section className='bg-[#D32828]  mb-0' >
     <footer className=' container mx-auto flex flex-col gap-y-5'>
     <div className='mx-auto md:hidden'>
-            <img className='h-[20rem] ' src={images.logo2}/>
+            <img className='h-[20rem] ' src={images.logo2} alt="logo"/>
     </div>
     <div className='md:flex md:justify-between'>
       <div>
@@ -43,10 +44,10 @@ const Footer = () => {
         </div>
       </div>
       <div className='mx-auto hidden md:block'>
-            <img className='h-[20rem]' src={images.logo2}/>
+            <img className='h-[20rem]' src={images.logo2} alt="logo"/>
             <div className='flex justify-center gap-x-11'>
-              <FiInstagram className='h-10 w-10'/>
-              <FiTwitter className='h-10 w-10'/>
+            <Link to ="https://instagram.com/lovetocut_?igshid=YmMyMTA2M2Y="><FiInstagram className='h-10 w-10'/></Link>
+            <Link to ="https://www.facebook.com/lovetocut2018?mibextid=LQQJ4d"> <FiFacebook className='h-10 w-10'/></Link>
             </div>
       </div>
         <div>
@@ -54,8 +55,8 @@ const Footer = () => {
           <TimesList />  
         </div>
         <div className='flex justify-center gap-x-9 md:hidden mb-5 mt-3'>
-              <FiInstagram className='h-10 w-10'/>
-              <FiTwitter className='h-10 w-10'/>
+              <Link to ="https://instagram.com/lovetocut_?igshid=YmMyMTA2M2Y="><FiInstagram className='h-10 w-10'/></Link>
+              <Link to ="https://www.facebook.com/lovetocut2018?mibextid=LQQJ4d"><FiFacebook className='h-10 w-10'/></Link>
         </div>
     </div>
 

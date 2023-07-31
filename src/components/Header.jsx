@@ -17,7 +17,7 @@ return (
 <section>
   <header className=' mx-auto px-5 flex justify-between py-4 bg-[#D32828]'>
     <Link to='/'>
-      <img  className='h-16 lg:h-20 brightness-0 invert' src={images.logo} alt="" />
+      <img  className='h-16 lg:h-20' src={images.logo} alt="" />
     </Link>
     <div className=' z-50 items-center flex lg:hidden'>
       {navIsvisible ? (<AiOutlineClose className='w-6 h-6' onClick={navVisibilityHandler}/>) : ( <AiOutlineMenu className=' w-6 h-6' onClick={navVisibilityHandler}/>)}
