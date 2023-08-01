@@ -21,6 +21,15 @@ const DashBoard = () => {
       toast.error(error.message)
     }
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 30000); // 1 minute in milliseconds
+
+    
+    return () => clearInterval(interval);
+  }, []);
   
   const { mutate: removeUser } = useMutation({
     mutationFn: async (x) => {

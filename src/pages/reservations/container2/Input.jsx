@@ -5,8 +5,6 @@ import { useMutation } from '@tanstack/react-query'
 import { signup,line } from '../../../services/index/users.js'
 import  toast  from 'react-hot-toast'
 
-
-
 const Input = () => {
 
   const [user,setUser] = useState([])
@@ -22,6 +20,16 @@ const Input = () => {
       toast.error(error.message)
     }
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 30000); // 1 minute in milliseconds
+
+    
+    return () => clearInterval(interval);
+  }, []);
+
 
 
   const {mutate:curline} = useMutation({
@@ -50,7 +58,8 @@ const Input = () => {
     setInputValue("")
     setBarberInput("")
 
-    await curline()
+    curline()
+    window.location.reload();
     
     
   }
