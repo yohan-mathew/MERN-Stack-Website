@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { HashRouter } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import {Helmet} from "react-helmet";
 
 const queryClient = new QueryClient()
 

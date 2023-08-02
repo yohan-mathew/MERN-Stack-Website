@@ -6,11 +6,18 @@ import Mwservices from './pages/Offeredservices/Mwservices';
 import { Toaster } from 'react-hot-toast';
 import LoginPage from './pages/login/LoginPage';
 import DashBoard from './pages/dashboard/DashBoard';
+import {Helmet} from "react-helmet";
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Love To Cut</title>
+                <link rel="canonical" href="http://lovetocut.com" />
+                <meta name="description" content="Haircut in baytown" />
+      </Helmet>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/reserveNow" element={<Reservation />} />

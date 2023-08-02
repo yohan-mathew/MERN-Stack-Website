@@ -37,7 +37,7 @@ const Footer = () => {
       <div>
         <div>
           <h1 className=' text-center font-header text-[2rem]'>Location</h1>
-          <p className=' text-center text-white font-sans text-[1.5rem]'>5623 Garth Rd <br></br> Suite 140 <br></br> Baytown,TX 77521</p>
+          <p className=' text-center text-white font-sans text-[1.5rem]'>5010 Garth Rd <br></br> Suite 108 <br></br> Baytown,TX 77521</p>
         </div>
         <div>
           <h1 className=' text-center font-header text-[2rem]'>Contact us</h1>

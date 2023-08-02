@@ -3,7 +3,7 @@ import { images } from '../../../constants/index.js';
 
 const Hero = () => {
   return (
-<section className=''>
+<section className=' overflow-x-hidden'>
     <div className='flex flex-row justify-between items-center'>
         <div className=' hidden md:flex'>
             <img src={images.mensTop} className='h-auto max-w-full ' alt="" />

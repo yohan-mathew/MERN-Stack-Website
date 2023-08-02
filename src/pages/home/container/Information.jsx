@@ -22,9 +22,7 @@ const Information = () => {
         <div className='xl:flex xl:flex-row gap-x-10 items-center'>
           
             <p className=' font-header text-center my-5 text-[1rem] sm:text-[2rem] xl:text-[3rem]'>We combine passion and expertise to deliver exceptional hair services. 
-                We started five years ago in the industry with a highly skilled team
-                 ensures that you'll receive top-notch service in a warm and inviting
-                  atmosphere.
+            Our dedicated professionals will guide you with expert knowledge to create the perfect style that complements your unique personality. 
             </p>
             <img src={images.prop2} className='mx-auto my-5 h-auto max-w-full xl:w-[50%]' alt="" />
         </div>

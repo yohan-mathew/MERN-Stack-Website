@@ -4,7 +4,7 @@ import Footer from './Footer'
 
 const MainLayout = ({children}) => {
   return (
-    <div className='bg-dark'>
+    <div className='bg-dark overflow-clip'>
       <Header />
       {children}
       
