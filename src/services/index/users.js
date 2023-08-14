@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const signup = async ({name,barber}) => {
+export const signup = async ({name,barber,service}) => {
 try{
 
-    await axios.post("/api/users/reserve",{name,barber});
+    await axios.post("/api/users/reserve",{name,barber,service});
 }
 
 catch(error) {

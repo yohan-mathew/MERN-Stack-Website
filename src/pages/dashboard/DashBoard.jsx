@@ -71,9 +71,10 @@ const DashBoard = () => {
         <div className='flex justify-center'>
           <h1> Current List</h1>
         </div>
-        <div className=' grid grid-cols-4 text-center text-lg'> 
+        <div className=' grid grid-cols-5 text-center text-lg'> 
           <h1>Name</h1>
           <h1>Barber</h1>
+          <h1>Service</h1>
           <h1>Time Reserved</h1>
           <h1>Done Cutting?</h1>
         </div>
@@ -83,6 +84,7 @@ const DashBoard = () => {
             <div key={item.id} className=' bg-[#D32828] rounded-lg w-[90%] mx-auto p-2  pl-10 pr-10 flex justify-between mb-3 col-span-3'>
               <p>{item.name}</p>
               <p>{item.barber}</p>
+              <p>{item.service}</p>
               <p>{formatTime(item.time)}</p>
             </div>
             <button className='bg-[#D32828] rounded-lg  mb-3'  onClick={() => printtheuser(item.id)}>Remove</button>

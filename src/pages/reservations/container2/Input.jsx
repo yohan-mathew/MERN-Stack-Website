@@ -12,8 +12,8 @@ const Input = () => {
   const [barberInput,setBarberInput] = useState('')
 
   const { mutate: signupfun } = useMutation({
-    mutationFn: ({ name, barber }) => {
-      return signup({ name, barber });
+    mutationFn: ({ name, barber,service }) => {
+      return signup({ name, barber,service });
     },onSuccess: () => {
       toast.success("seat reserved")
     },onError:(error) =>{
@@ -53,10 +53,11 @@ const Input = () => {
   
   async function Click() {
 
-    signupfun({name: inputValue,barber: barberInput})
+    signupfun({name: inputValue,barber: barberInput, service:selectedOption})
    
     setInputValue("")
     setBarberInput("")
+    setSelectedOption("Haircut")
 
     curline()
     window.location.reload();
@@ -72,10 +73,11 @@ const Change = event => {
     setBarberInput(event.target.value)
   }
 
-
-
- 
 }
+
+const [selectedOption, setSelectedOption] = useState('Haircut'); // Set a default option
+
+const dropdownOptions = ['Haircut', 'Haircut & beard', 'Haircut & wash', 'Haircut & wash Styles', 'Color Service' ];
   return (
     <form>
       <div className="container w-[50%] flex flex-col m-4 mx-auto">
@@ -101,6 +103,20 @@ const Change = event => {
         placeholder='Your Preferred Specialist '
         className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
       />
+      <label htmlFor="name" className="mb-1 font-header">
+        Service Type:
+      </label>
+      <select
+          value={selectedOption}
+          onChange={(event) => setSelectedOption(event.target.value)}
+          className="border border-gray-300 rounded px-3 py-2 text-center font-body"
+        >
+          {dropdownOptions.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+       </select>
       <a className='flex justify-center mt-6'>
         <img className='h-14' src={images.lineButton} alt="booknow" onClick={Click} ></img>
       </a>
