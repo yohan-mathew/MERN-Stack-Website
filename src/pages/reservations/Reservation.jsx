@@ -6,12 +6,15 @@ import Input from './container2/Input.jsx'
 
 
 
-const Reservation = () => {
+const Reservation = ({info}) => {
+  info.on("new_user", () => {
+    window.location.reload();
+  })
   return (
     <MainLayout>
         <section>
           <Hero />
-          <Input/>         
+          <Input childFunc={info}/>         
         </section>
     </MainLayout>
     

@@ -6,7 +6,10 @@ import { useEffect } from 'react';
 import { toast} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-const DashBoard = () => {
+const DashBoard = ({info}) => {
+  info.on("new_user", () => {
+    window.location.reload();
+  })
 
   const [user,setUser] = useState([])
 
@@ -22,14 +25,14 @@ const DashBoard = () => {
     }
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      window.location.reload();
-    }, 30000); // 1 minute in milliseconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     window.location.reload();
+  //   }, 30000); // 1 minute in milliseconds
 
     
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
   
   const { mutate: removeUser } = useMutation({
     mutationFn: async (x) => {
@@ -62,6 +65,7 @@ const DashBoard = () => {
   const printtheuser = async (x) =>{
     removeUser(x)
     curline()
+    info.emit("added_new", "removed user")
   }
   
   return (

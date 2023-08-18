@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { signup,line } from '../../../services/index/users.js'
 import  toast  from 'react-hot-toast'
 
-const Input = () => {
+const Input = ({childFunc}) => {
 
   const [user,setUser] = useState([])
   const [inputValue,setInputValue] = useState('')
@@ -21,14 +21,14 @@ const Input = () => {
     }
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      window.location.reload();
-    }, 30000); // 1 minute in milliseconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     window.location.reload();
+  //   }, 30000); // 1 minute in milliseconds
 
     
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
 
 
@@ -53,6 +53,8 @@ const Input = () => {
   
   async function Click() {
 
+    
+
     signupfun({name: inputValue,barber: barberInput, service:selectedOption})
    
     setInputValue("")
@@ -60,7 +62,8 @@ const Input = () => {
     setSelectedOption("Haircut")
 
     curline()
-    window.location.reload();
+    childFunc.emit("added_new", "added new user")
+    // window.location.reload();
     
     
   }
