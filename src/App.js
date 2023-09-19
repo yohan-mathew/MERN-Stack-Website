@@ -8,7 +8,7 @@ import LoginPage from './pages/login/LoginPage';
 import DashBoard from './pages/dashboard/DashBoard';
 import {Helmet} from "react-helmet";
 import { io } from 'socket.io-client';
-const socket = io('http://localhost:5000')
+const socket = io('https://lovetocut.com')
 
 socket.on('connection')
 
