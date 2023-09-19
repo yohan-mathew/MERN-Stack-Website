@@ -127,7 +127,13 @@ const dropdownOptions = ['Haircut', 'Haircut & beard', 'Haircut & wash', 'Haircu
       <div className= 'm-6 p-4 bg-black text-white flex flex-col rounded-md text-center gap-y-2 lg:w-[50%] lg:mx-auto'>
         <h1 className=' font-body text-[20px] text-[#D32828]'>Current line</h1>
         {user.map((item,index)=> (
-          <p key={index} className=' bg-[#D32828] rounded-lg w-[40%] mx-auto p-2'>{item.name}</p>))}
+            <div key={index} className='flex flex-row justify-center items-center'>
+            <p className=' px-3'>{index + 1}.</p>
+            <p className='bg-[#D32828] rounded-lg w-[40%] p-2'>
+              {item.name}
+            </p>
+          </div>
+       ))}
         <h1 className=' font-body text-[20px]'>Join the line for swift and personalized service</h1>
       </div>
      
