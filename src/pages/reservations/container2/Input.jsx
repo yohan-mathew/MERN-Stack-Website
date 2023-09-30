@@ -10,10 +10,11 @@ const Input = ({childFunc}) => {
   const [user,setUser] = useState([])
   const [inputValue,setInputValue] = useState('')
   const [barberInput,setBarberInput] = useState('')
+  const [timeInput,setTimeInput] = useState('')
 
   const { mutate: signupfun } = useMutation({
-    mutationFn: ({ name, barber,service }) => {
-      return signup({ name, barber,service });
+    mutationFn: ({ name, barber, arrivalTime, service }) => {
+      return signup({ name, barber,arrivalTime,service});
     },onSuccess: () => {
       toast.success("seat reserved")
     },onError:(error) =>{
@@ -53,12 +54,11 @@ const Input = ({childFunc}) => {
   
   async function Click() {
 
-    
-
-    signupfun({name: inputValue,barber: barberInput, service:selectedOption})
+    signupfun({name: inputValue,barber: barberInput, arrivalTime:timeInput, service:selectedOption})
    
     setInputValue("")
     setBarberInput("")
+    setInputValue("")
     setSelectedOption("Haircut")
 
     curline()
@@ -71,6 +71,9 @@ const Input = ({childFunc}) => {
 const Change = event => {
   if(event.target.id === "name"){
     setInputValue(event.target.value)
+  }
+  else if(event.target.id === "arrivalTime"){
+    setTimeInput(event.target.value)
   }
   else{
     setBarberInput(event.target.value)
@@ -106,6 +109,19 @@ const dropdownOptions = ['Haircut', 'Haircut & beard', 'Haircut & wash', 'Haircu
         placeholder='Your Preferred Specialist '
         className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
       />
+       <label htmlFor="name" className="mb-1 font-header">
+        Estimated Time of Arrival:
+      </label>
+      <input
+        id='arrivalTime'
+        type='text'
+        value={timeInput}
+        onChange={Change}
+        placeholder='ETA...'
+        className="border border-gray-300 rounded px-3 py-2 mb-1 text-center font-body text-md"
+      >
+        
+      </input>
       <label htmlFor="name" className="mb-1 font-header">
         Service Type:
       </label>

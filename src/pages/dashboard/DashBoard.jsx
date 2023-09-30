@@ -72,30 +72,37 @@ const DashBoard = ({info}) => {
     
     <MainLayout>
       <section className=' bg-black text-white font-body min-h-screen'>
-        <div className='flex justify-center'>
-          <h1> Current List</h1>
-        </div>
-        <div className=' grid grid-cols-5 text-center text-lg'> 
-          <h1>Name</h1>
-          <h1>Barber</h1>
-          <h1>Service</h1>
-          <h1>Time Reserved</h1>
-          <h1>Done Cutting?</h1>
-        </div>
-        <div className= 'flex flex-col'>
-          {user.map((item,index)=> (
-            <div className=' grid grid-cols-4'>
-            <div key={item.id} className=' bg-[#D32828] rounded-lg w-[90%] mx-auto p-2  pl-10 pr-10 flex justify-between mb-3 col-span-3'>
-              <p>{item.name}</p>
-              <p>{item.barber}</p>
-              <p>{item.service}</p>
-              <p>{formatTime(item.time)}</p>
-            </div>
-            <button className='bg-[#D32828] rounded-lg  mb-3'  onClick={() => printtheuser(item.id)}>Remove</button>
-            </div>
-            ))}
-           
-      </div> 
+
+        <div className='flex justify-center'>       
+          <table class="table-auto border border-slate-500">
+            <caption>current Line</caption>
+            <thead>
+              <tr  class=" bg-gray-500" >
+                <th className=' px-8'>Name</th>
+                <th class="px-8"> barber</th>
+                <th class="px-8">services</th>
+                <th class="px-8">Booking time</th>
+                <th class="px-8">ETA</th>
+                <th class="px-8">Done cutting?</th>
+              </tr>
+            </thead>
+            <tbody>
+            {user.map((item,index)=> (
+                      
+                      <tr className='border border-separate' key={item.id}>
+                        <td class="px-8 py-5 border border-separate">{item.name}</td>
+                        <td class="px-8 border border-separate">{item.barber}</td>
+                        <td class="px-8 border border-separate">{item.service}</td>
+                        <td class="px-8 border border-separate">{formatTime(item.time)}</td>
+                        <td class="px-8 border border-separate">{item.arrivalTime}</td>
+                        <td><button className='flex justify-center bg-[#D32828] rounded-lg w-[90%] mx-auto items-center'>remove</button></td>
+                      </tr>
+                      ))}
+
+              </tbody>
+            </table>
+          </div> 
+         
       </section>
     </MainLayout>
   );

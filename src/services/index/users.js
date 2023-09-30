@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export const signup = async ({name,barber,service}) => {
+export const signup = async ({name,barber,arrivalTime, service}) => {
 try{
+    console.log(arrivalTime)
 
-    await axios.post("/api/users/reserve",{name,barber,service});
+    await axios.post("/api/users/reserve",{name,barber,arrivalTime, service});
 }
 
 catch(error) {
