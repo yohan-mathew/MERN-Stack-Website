@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MainLayout from '../../components/MainLayout';
 import { useMutation } from '@tanstack/react-query';
-import { adminauth, deleteUser, line } from '../../services/index/users';
+import { adminauth, deleteUser, line, addBarber } from '../../services/index/users';
 import { useEffect } from 'react';
 import { toast} from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ const DashBoard = ({info}) => {
   })
 
   const [user,setUser] = useState([])
+  const [barber,setBarber] = useState([])
 
   const navigate = useNavigate();
   const { mutate: verify } = useMutation({
@@ -25,14 +26,6 @@ const DashBoard = ({info}) => {
     }
   });
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     window.location.reload();
-  //   }, 30000); // 1 minute in milliseconds
-
-    
-  //   return () => clearInterval(interval);
-  // }, []);
   
   const { mutate: removeUser } = useMutation({
     mutationFn: async (x) => {
@@ -67,11 +60,35 @@ const DashBoard = ({info}) => {
     curline()
     info.emit("added_new", "removed user")
   }
+
+  const Change = event => {
+    if(event.target.id === "barber"){
+      setBarber(event.target.value)
+    }
+  
+  }
   
   return (
     
     <MainLayout>
       <section className=' bg-black text-white font-body min-h-screen'>
+        <div className='border border-white flex flex-col justify-center h-[300px]'>
+          <form className='flex flex-col justify-center items-center' >
+              <label className='m-2'>barbers on clock</label> 
+              <input 
+                id = 'barber'
+                type = "text"
+                value = {barber}
+                placeholder='Enter a barber'
+                onChange={Change}/>
+              <button className='border px-4 m-2' >add</button> 
+          </form>
+          <div>
+            <label>Barbers working today:</label>
+            {/* stopped here need to make the dynamic barber fetch, added the route tho*/}
+          </div>
+          
+        </div>
 
         <div className='flex justify-center'>       
           <table class="table-auto border border-slate-500">

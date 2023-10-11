@@ -70,3 +70,16 @@ export const signin = async ({email,password}) => {
         }
     }
 
+    export const addBarber = async (name) => {
+        try{
+            await axios.post(`/api/users/dashboard/${name}`)
+        }
+        catch(error){
+            if(error.response && error.response.data.message){
+                throw new Error(error.response.data.message)
+            
+            }
+        }
+    }
+
+
