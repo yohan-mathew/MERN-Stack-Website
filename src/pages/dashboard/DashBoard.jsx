@@ -112,7 +112,14 @@ const DashBoard = ({info}) => {
                         <td class="px-8 border border-separate">{item.service}</td>
                         <td class="px-8 border border-separate">{formatTime(item.time)}</td>
                         <td class="px-8 border border-separate">{item.arrivalTime}</td>
-                        <td><button className='flex justify-center bg-[#D32828] rounded-lg w-[90%] mx-auto items-center'>remove</button></td>
+                        <td>
+                            <button 
+                              onClick={() => printtheuser(item.id)} // or item.id depending on your schema
+                              className='flex justify-center bg-[#D32828] rounded-lg w-[90%] mx-auto items-center'
+                            >
+                              remove
+                            </button>
+                        </td>
                       </tr>
                       ))}
 
