@@ -71,15 +71,33 @@ export const signin = async ({email,password}) => {
     }
 
     export const addBarber = async (name) => {
-        try{
-            await axios.post(`/api/users/dashboard/${name}`)
+        try {
+          await axios.post("/api/users/barbers", { name }); 
         }
-        catch(error){
-            if(error.response && error.response.data.message){
-                throw new Error(error.response.data.message)
-            
-            }
+        catch (error) {
+          if (error.response && error.response.data.message) {
+            throw new Error(error.response.data.message);
+          }
         }
-    }
+      };
 
+      export const fetchBarbers = async () => {
+        try {
+          const { data } = await axios.get("/api/users/barbers");
+          return data || [];  // ✅ Always return array
+        } catch (error) {
+          console.error(error);
+          return [];
+        }
+      };
 
+      export const deleteBarber = async (id) => {
+        try {
+          await axios.delete(`/api/users/barbers/${id}`);
+        } catch (error) {
+          if (error.response?.data?.message) {
+            throw new Error(error.response.data.message);
+          }
+          throw error;
+        }
+      };
